@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Список задач</h1>
+
+        <% if (errors) { %>
+            <ul class="errors">
+                <% errors.forEach(error => { %>
+                    <li><%= error.msg  %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+
+        <form action="/todos" method="POST">
+            <!-- <input type="text" name="title" placeholder="Title" required> -->
+            <input type="text" name="title" placeholder="Заголовок">
+            <textarea name="description" placeholder="Описание задачи"></textarea>
+            <button type="submit">Добавить задачу</button>
+        </form>
+
+        <ul>
+            <% todos.forEach(todo => { %>
+                <li>
+                    <form action="/todos/update/<%= todo._id %>?_method=PUT" method="POST">
+                        <!-- <input type="text" name="title" value="<%= todo.title %>" required> -->
+                        <input type="text" name="title" value="<%= todo.title %>">
+                        <textarea name="description"><%= todo.description %></textarea>
+                        <input type="checkbox" name="completed" <%= todo.completed ? "checked" : "" %>>
+                        <button type="submit">Обновить</button>
+                    </form>
+                    <form action="/todos/delete/<%= todo._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete-button">Удалить</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
