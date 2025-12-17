@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <title>Прогноз погоды по городу</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/form.css">
+    <link rel="stylesheet" href="./styles/weather.css">
+</head>
+<body>
+    <section>
+        <h1>Прогноз погоды по городу</h1>
+        <h2>Актуальная погода по названию города в удобном формате</hр>
+    </section>
+
+    <section>
+        <form id="weather-form">
+            <div class="label-block">
+                <label for="city">Название города</label>
+                <input type="text" name="city" id="city" placeholder="К примеру Москва" minlength="1" required>
+            </div>
+            <button type="submit">Получить данные</button>
+            <p id="status"></p>
+        </form>
+    </section>
+
+    <section id="weather">
+        <div class="flex-row weather-city">
+            <p class="text-gray">Результаты:</p>
+            <p id="location-name" class="text-bold"></p>
+        </div>
+        <div class="weather-info">
+            <div class="flex-col">
+                <div class="flex-row">
+                    <img id="weather-icon" src="" alt="">
+                    <h2 id="temperature"></h2>
+                    <sup>°C</sup>
+                </div>
+                <small class="text-gray">Ощущается как: <span id="feels-like"></span><sup>°C</sup></small>
+                <small class="text-gray">Вероятность осадков: <span id="chance-of-rain"></span>%</small>
+                <small class="text-gray">Влажность: <span id="humidity"></span>%</small>
+                <small class="text-gray">Ветер: <span id="wind-speed"></span> км/ч</small>
+            </div>
+            <div class="flex-col weather-right">
+                <h3>Погода</h3>
+                <p id="last-updated" class="text-gray"></p>
+                <p id="condition" class="text-gray"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/ru.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
