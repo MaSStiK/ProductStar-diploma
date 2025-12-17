@@ -19,6 +19,7 @@
 - CSS3
 - Node.js
 - Express
+- Express-validator
 - MongoDB
 - Mongoose
 - EJS (шаблонизатор)
