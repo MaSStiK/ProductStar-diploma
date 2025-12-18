@@ -67,6 +67,7 @@ async function loadCity(city) {
     } catch (error) {
         console.error("loadCity error", error.responseJSON)
         $status.text("Ошибка: Город не найден")
+        $weather.hide()
     }
 }
 
