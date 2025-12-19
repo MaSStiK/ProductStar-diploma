@@ -25,10 +25,6 @@ app.get("/", (req, res) => {
 const todoRoutes = require("./routes/todo")
 app.use("/todos", todoRoutes)
 
-// app.get("/", (req, res) => {
-//     res.redirect("/todos")
-// })
-
 app.use((req, res) => {
     if (req.path !== "/") {
         return res.redirect("/todos");
